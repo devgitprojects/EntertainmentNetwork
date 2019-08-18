@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DB211C84-B0BD-42C9-A214-1822B6815C3E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EntertainmentNetwork.DAL</RootNamespace>
+    <AssemblyName>EntertainmentNetwork.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Mvvm.v15.2, Version=15.2.13.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Workflow.ComponentModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CinemaRepository.cs" />
+    <Compile Include="CityRepository.cs" />
+    <Compile Include="BaseRepository.cs" />
+    <Compile Include="OrderRepository.cs" />
+    <Compile Include="Models\Interfaces\IOrderRepository.cs" />
+    <Compile Include="Models\Interfaces\IOrder.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Service References\OrdersService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="TicketRepository.cs" />
+    <Compile Include="SchedulerRepository.cs" />
+    <Compile Include="Models\Interfaces\ISchedulerRepository.cs" />
+    <Compile Include="Models\Interfaces\ITicket.cs" />
+    <Compile Include="ShowRepository.cs" />
+    <Compile Include="Helpers.cs" />
+    <Compile Include="Models\Interfaces\IShowRepository.cs" />
+    <Compile Include="Models\Scheduler.cs" />
+    <Compile Include="Models\Interfaces\IScheduler.cs" />
+    <Compile Include="Models\Show.cs" />
+    <Compile Include="Models\Interfaces\ITicketRepository.cs" />
+    <Compile Include="Models\Ticket.cs" />
+    <Compile Include="Service References\CinemaService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CityService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\TicketService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Logger.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Cinema.cs" />
+    <Compile Include="Models\Section.cs" />
+    <Compile Include="Models\Interfaces\IShow.cs" />
+    <Compile Include="Models\Interfaces\IBaseRepository.cs" />
+    <Compile Include="Models\Interfaces\ISection.cs" />
+    <Compile Include="Models\Seat.cs" />
+    <Compile Include="Models\Hall.cs" />
+    <Compile Include="Models\Interfaces\IBaseModel.cs" />
+    <Compile Include="Models\Interfaces\ICinema.cs" />
+    <Compile Include="Models\Interfaces\ICinemaRepository.cs" />
+    <Compile Include="Models\Interfaces\ICity.cs" />
+    <Compile Include="Models\Interfaces\IHall.cs" />
+    <Compile Include="Models\Interfaces\ISeat.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\SchedulerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ShowService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Service References\CinemaService\CinemaService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CinemaService\CinemaServiceService.wsdl" />
+    <None Include="Service References\CinemaService\EntertainmentNetwork.DAL.CinemaService.cinema.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CinemaService\EntertainmentNetwork.DAL.CinemaService.findCinemaByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CinemaService\EntertainmentNetwork.DAL.CinemaService.generateSeatsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CinemaService\EntertainmentNetwork.DAL.CinemaService.getCinemasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CinemaService\EntertainmentNetwork.DAL.CinemaService.getSimplifiedCinemasByCityIdShowIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CinemaService\EntertainmentNetwork.DAL.CinemaService.immutableTriple.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CinemaService\EntertainmentNetwork.DAL.CinemaService.removeCinemaResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CinemaService\EntertainmentNetwork.DAL.CinemaService.saveCinemasResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CinemaService\EntertainmentNetwork.DAL.CinemaService.seat.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CityService\CityService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CityService\CityServiceService.wsdl" />
+    <None Include="Service References\CityService\EntertainmentNetwork.DAL.CityService.city.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CityService\EntertainmentNetwork.DAL.CityService.findCityByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CityService\EntertainmentNetwork.DAL.CityService.getCitiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CityService\EntertainmentNetwork.DAL.CityService.removeCityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\CityService\EntertainmentNetwork.DAL.CityService.saveCitiesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrdersService\EntertainmentNetwork.DAL.OrdersService.findOrdersByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrdersService\EntertainmentNetwork.DAL.OrdersService.generateOrderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrdersService\EntertainmentNetwork.DAL.OrdersService.getOrdersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrdersService\EntertainmentNetwork.DAL.OrdersService.orders.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrdersService\EntertainmentNetwork.DAL.OrdersService.removeOrderResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrdersService\EntertainmentNetwork.DAL.OrdersService.saveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\OrdersService\OrderServiceService.wsdl" />
+    <None Include="Service References\OrdersService\OrdersService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SchedulerService\EntertainmentNetwork.DAL.SchedulerService.findSchedulerByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SchedulerService\EntertainmentNetwork.DAL.SchedulerService.getSchedulersByCinemaHallShowDatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SchedulerService\EntertainmentNetwork.DAL.SchedulerService.getSchedulersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SchedulerService\EntertainmentNetwork.DAL.SchedulerService.removeSchedulerResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SchedulerService\EntertainmentNetwork.DAL.SchedulerService.saveSchedulersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SchedulerService\EntertainmentNetwork.DAL.SchedulerService.scheduler.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\SchedulerService\SchedulerService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\SchedulerService\SchedulerServiceService.wsdl" />
+    <None Include="Service References\ShowService\EntertainmentNetwork.DAL.ShowService.findShowByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ShowService\EntertainmentNetwork.DAL.ShowService.getShowsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ShowService\EntertainmentNetwork.DAL.ShowService.getSimplifiedShowsByDatesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ShowService\EntertainmentNetwork.DAL.ShowService.immutablePair.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ShowService\EntertainmentNetwork.DAL.ShowService.removeShowResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ShowService\EntertainmentNetwork.DAL.ShowService.saveShowsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ShowService\EntertainmentNetwork.DAL.ShowService.show.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ShowService\ShowService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ShowService\ShowServiceService.wsdl" />
+    <None Include="Service References\TicketService\EntertainmentNetwork.DAL.TicketService.findTicketByIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TicketService\EntertainmentNetwork.DAL.TicketService.generateTicketResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TicketService\EntertainmentNetwork.DAL.TicketService.getTicketsByScheduleIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TicketService\EntertainmentNetwork.DAL.TicketService.getTicketsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TicketService\EntertainmentNetwork.DAL.TicketService.removeTicketResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TicketService\EntertainmentNetwork.DAL.TicketService.saveTicketsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TicketService\EntertainmentNetwork.DAL.TicketService.tickets.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TicketService\TicketService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\TicketService\TicketServiceService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\CinemaService\" />
+    <WCFMetadataStorage Include="Service References\CityService\" />
+    <WCFMetadataStorage Include="Service References\OrdersService\" />
+    <WCFMetadataStorage Include="Service References\SchedulerService\" />
+    <WCFMetadataStorage Include="Service References\ShowService\" />
+    <WCFMetadataStorage Include="Service References\TicketService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CityService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CityService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CityService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CinemaService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CinemaService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CinemaService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SchedulerService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SchedulerService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\SchedulerService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ShowService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ShowService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ShowService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TicketService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TicketService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TicketService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OrdersService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OrdersService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\OrdersService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

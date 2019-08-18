@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://SchedulerServices.Services.EntertainmentNetworkServer.ua.git.dev/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="SchedulerServiceService" targetNamespace="http://SchedulerServices.Services.EntertainmentNetworkServer.ua.git.dev/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://pc-test:8081/SchedulerService?xsd=1" namespace="http://SchedulerServices.Services.EntertainmentNetworkServer.ua.git.dev/" />
+    </xsd:schema>
+  </types>
+  <message name="removeScheduler">
+    <part name="parameters" element="tns:removeScheduler" />
+  </message>
+  <message name="removeSchedulerResponse">
+    <part name="parameters" element="tns:removeSchedulerResponse" />
+  </message>
+  <message name="ServiceException">
+    <part name="fault" element="tns:ServiceException" />
+  </message>
+  <message name="getSchedulers">
+    <part name="parameters" element="tns:getSchedulers" />
+  </message>
+  <message name="getSchedulersResponse">
+    <part name="parameters" element="tns:getSchedulersResponse" />
+  </message>
+  <message name="saveSchedulers">
+    <part name="parameters" element="tns:saveSchedulers" />
+  </message>
+  <message name="saveSchedulersResponse">
+    <part name="parameters" element="tns:saveSchedulersResponse" />
+  </message>
+  <message name="getSchedulersByCinemaHallShowDates">
+    <part name="parameters" element="tns:getSchedulersByCinemaHallShowDates" />
+  </message>
+  <message name="getSchedulersByCinemaHallShowDatesResponse">
+    <part name="parameters" element="tns:getSchedulersByCinemaHallShowDatesResponse" />
+  </message>
+  <message name="findSchedulerById">
+    <part name="parameters" element="tns:findSchedulerById" />
+  </message>
+  <message name="findSchedulerByIdResponse">
+    <part name="parameters" element="tns:findSchedulerByIdResponse" />
+  </message>
+  <portType name="SchedulerService">
+    <operation name="removeScheduler">
+      <input wsam:Action="http://SchedulerServices.Services.EntertainmentNetworkServer.ua.git.dev/SchedulerService/removeSchedulerRequest" message="tns:removeScheduler" />
+      <output wsam:Action="http://SchedulerServices.Services.EntertainmentNetworkServer.ua.git.dev/SchedulerService/removeSchedulerResponse" message="tns:removeSchedulerResponse" />
+      <fault wsam:Action="http://SchedulerServices.Services.EntertainmentNetworkServer.ua.git.dev/SchedulerService/removeScheduler/Fault/ServiceException" name="ServiceException" message="tns:ServiceException" />
+    </operation>
+    <operation name="getSchedulers">
+      <input wsam:Action="http://SchedulerServices.Services.EntertainmentNetworkServer.ua.git.dev/SchedulerService/getSchedulersRequest" message="tns:getSchedulers" />
+      <output wsam:Action="http://SchedulerServices.Services.EntertainmentNetworkServer.ua.git.dev/SchedulerService/getSchedulersResponse" message="tns:getSchedulersResponse" />
+    </operation>
+    <operation name="saveSchedulers">
+      <input wsam:Action="http://SchedulerServices.Services.EntertainmentNetworkServer.ua.git.dev/SchedulerService/saveSchedulersRequest" message="tns:saveSchedulers" />
+      <output wsam:Action="http://SchedulerServices.Services.EntertainmentNetworkServer.ua.git.dev/SchedulerService/saveSchedulersResponse" message="tns:saveSchedulersResponse" />
+    </operation>
+    <operation name="getSchedulersByCinemaHallShowDates">
+      <input wsam:Action="http://SchedulerServices.Services.EntertainmentNetworkServer.ua.git.dev/SchedulerService/getSchedulersByCinemaHallShowDatesRequest" message="tns:getSchedulersByCinemaHallShowDates" />
+      <output wsam:Action="http://SchedulerServices.Services.EntertainmentNetworkServer.ua.git.dev/SchedulerService/getSchedulersByCinemaHallShowDatesResponse" message="tns:getSchedulersByCinemaHallShowDatesResponse" />
+    </operation>
+    <operation name="findSchedulerById">
+      <input wsam:Action="http://SchedulerServices.Services.EntertainmentNetworkServer.ua.git.dev/SchedulerService/findSchedulerByIdRequest" message="tns:findSchedulerById" />
+      <output wsam:Action="http://SchedulerServices.Services.EntertainmentNetworkServer.ua.git.dev/SchedulerService/findSchedulerByIdResponse" message="tns:findSchedulerByIdResponse" />
+    </operation>
+  </portType>
+  <binding name="SchedulerServicePortBinding" type="tns:SchedulerService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="removeScheduler">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getSchedulers">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="saveSchedulers">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getSchedulersByCinemaHallShowDates">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findSchedulerById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="SchedulerServiceService">
+    <port name="SchedulerServicePort" binding="tns:SchedulerServicePortBinding">
+      <soap:address location="http://pc-test:8081/SchedulerService" />
+    </port>
+  </service>
+</definitions>

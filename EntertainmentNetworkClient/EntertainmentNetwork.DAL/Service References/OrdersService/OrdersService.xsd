@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://OrderService.Services.EntertainmentNetworkServer.ua.git.dev/" targetNamespace="http://OrderService.Services.EntertainmentNetworkServer.ua.git.dev/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ServiceException" type="tns:ServiceException" />
+  <xs:element name="findOrdersById" type="tns:findOrdersById" />
+  <xs:element name="findOrdersByIdResponse" type="tns:findOrdersByIdResponse" />
+  <xs:element name="generateOrder" type="tns:generateOrder" />
+  <xs:element name="generateOrderResponse" type="tns:generateOrderResponse" />
+  <xs:element name="getOrders" type="tns:getOrders" />
+  <xs:element name="getOrdersResponse" type="tns:getOrdersResponse" />
+  <xs:element name="removeOrder" type="tns:removeOrder" />
+  <xs:element name="removeOrderResponse" type="tns:removeOrderResponse" />
+  <xs:element name="save" nillable="true" type="tns:generateOrder" />
+  <xs:element name="saveResponse" nillable="true" type="tns:generateOrderResponse" />
+  <xs:complexType name="generateOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="generateOrderResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:orders" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="orders">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ordDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="ordComm" type="xs:string" />
+          <xs:element minOccurs="0" name="ordCost" type="xs:decimal" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="ticketses" nillable="true" type="tns:tickets" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="baseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:decimal" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tickets">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="scheduler" type="tns:scheduler" />
+          <xs:element minOccurs="0" name="seat" type="tns:seat" />
+          <xs:element minOccurs="0" name="tctPrice" type="xs:decimal" />
+          <xs:element name="tctIssold" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ordersId" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="scheduler">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="schDescr" type="xs:string" />
+          <xs:element minOccurs="0" name="schTimeFrom" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="schTimeTo" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="schCoef" type="xs:decimal" />
+          <xs:element minOccurs="0" name="hallId" type="xs:decimal" />
+          <xs:element minOccurs="0" name="showId" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="seat">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseModel">
+        <xs:sequence>
+          <xs:element name="seatIsactive" type="xs:boolean" />
+          <xs:element name="seatColumn" type="xs:int" />
+          <xs:element name="seatNum" type="xs:int" />
+          <xs:element name="seatRow" type="xs:int" />
+          <xs:element name="seatType" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="getOrders">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getOrdersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:orders" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findOrdersById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findOrdersByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:orders" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeOrder">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeOrderResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="ServiceException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

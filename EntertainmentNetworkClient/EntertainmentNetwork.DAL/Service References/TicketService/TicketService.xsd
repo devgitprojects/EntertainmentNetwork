@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/" targetNamespace="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ServiceException" type="tns:ServiceException" />
+  <xs:element name="TicketSoldException" type="tns:TicketSoldException" />
+  <xs:element name="findTicketById" type="tns:findTicketById" />
+  <xs:element name="findTicketByIdResponse" type="tns:findTicketByIdResponse" />
+  <xs:element name="generateTicket" type="tns:generateTicket" />
+  <xs:element name="generateTicketResponse" type="tns:generateTicketResponse" />
+  <xs:element name="getTickets" type="tns:getTickets" />
+  <xs:element name="getTicketsByScheduleID" type="tns:getTicketsByScheduleID" />
+  <xs:element name="getTicketsByScheduleIDResponse" type="tns:getTicketsByScheduleIDResponse" />
+  <xs:element name="getTicketsResponse" type="tns:getTicketsResponse" />
+  <xs:element name="removeTicket" type="tns:removeTicket" />
+  <xs:element name="removeTicketResponse" type="tns:removeTicketResponse" />
+  <xs:element name="saveTickets" type="tns:saveTickets" />
+  <xs:element name="saveTicketsResponse" type="tns:saveTicketsResponse" />
+  <xs:complexType name="removeTicket">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeTicketResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="ServiceException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTicketsByScheduleID">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTicketsByScheduleIDResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:tickets" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="tickets">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="scheduler" type="tns:scheduler" />
+          <xs:element minOccurs="0" name="seat" type="tns:seat" />
+          <xs:element minOccurs="0" name="tctPrice" type="xs:decimal" />
+          <xs:element name="tctIssold" type="xs:boolean" />
+          <xs:element minOccurs="0" name="ordersId" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="baseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:decimal" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="scheduler">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="schDescr" type="xs:string" />
+          <xs:element minOccurs="0" name="schTimeFrom" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="schTimeTo" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="schCoef" type="xs:decimal" />
+          <xs:element minOccurs="0" name="hallId" type="xs:decimal" />
+          <xs:element minOccurs="0" name="showId" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="seat">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseModel">
+        <xs:sequence>
+          <xs:element name="seatIsactive" type="xs:boolean" />
+          <xs:element name="seatColumn" type="xs:int" />
+          <xs:element name="seatNum" type="xs:int" />
+          <xs:element name="seatRow" type="xs:int" />
+          <xs:element name="seatType" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="generateTicket">
+    <xs:sequence>
+      <xs:element name="schedulerID" type="xs:decimal" />
+      <xs:element name="seatID" type="xs:decimal" />
+      <xs:element name="sectionID" type="xs:decimal" />
+      <xs:element name="showID" type="xs:decimal" />
+      <xs:element name="orderID" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="generateTicketResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="tns:tickets" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="TicketSoldException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveTickets">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="arg0" type="tns:tickets" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveTicketsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:tickets" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getTickets">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getTicketsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:tickets" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findTicketById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findTicketByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:tickets" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

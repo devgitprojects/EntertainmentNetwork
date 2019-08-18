@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="TicketServiceService" targetNamespace="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://pc-test:8081/TicketService?xsd=1" namespace="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/" />
+    </xsd:schema>
+  </types>
+  <message name="removeTicket">
+    <part name="parameters" element="tns:removeTicket" />
+  </message>
+  <message name="removeTicketResponse">
+    <part name="parameters" element="tns:removeTicketResponse" />
+  </message>
+  <message name="ServiceException">
+    <part name="fault" element="tns:ServiceException" />
+  </message>
+  <message name="getTickets">
+    <part name="parameters" element="tns:getTickets" />
+  </message>
+  <message name="getTicketsResponse">
+    <part name="parameters" element="tns:getTicketsResponse" />
+  </message>
+  <message name="saveTickets">
+    <part name="parameters" element="tns:saveTickets" />
+  </message>
+  <message name="saveTicketsResponse">
+    <part name="parameters" element="tns:saveTicketsResponse" />
+  </message>
+  <message name="getTicketsByScheduleID">
+    <part name="parameters" element="tns:getTicketsByScheduleID" />
+  </message>
+  <message name="getTicketsByScheduleIDResponse">
+    <part name="parameters" element="tns:getTicketsByScheduleIDResponse" />
+  </message>
+  <message name="generateTicket">
+    <part name="parameters" element="tns:generateTicket" />
+  </message>
+  <message name="generateTicketResponse">
+    <part name="parameters" element="tns:generateTicketResponse" />
+  </message>
+  <message name="TicketSoldException">
+    <part name="fault" element="tns:TicketSoldException" />
+  </message>
+  <message name="findTicketById">
+    <part name="parameters" element="tns:findTicketById" />
+  </message>
+  <message name="findTicketByIdResponse">
+    <part name="parameters" element="tns:findTicketByIdResponse" />
+  </message>
+  <portType name="TicketService">
+    <operation name="removeTicket">
+      <input wsam:Action="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/TicketService/removeTicketRequest" message="tns:removeTicket" />
+      <output wsam:Action="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/TicketService/removeTicketResponse" message="tns:removeTicketResponse" />
+      <fault wsam:Action="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/TicketService/removeTicket/Fault/ServiceException" name="ServiceException" message="tns:ServiceException" />
+    </operation>
+    <operation name="getTickets">
+      <input wsam:Action="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/TicketService/getTicketsRequest" message="tns:getTickets" />
+      <output wsam:Action="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/TicketService/getTicketsResponse" message="tns:getTicketsResponse" />
+    </operation>
+    <operation name="saveTickets">
+      <input wsam:Action="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/TicketService/saveTicketsRequest" message="tns:saveTickets" />
+      <output wsam:Action="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/TicketService/saveTicketsResponse" message="tns:saveTicketsResponse" />
+    </operation>
+    <operation name="getTicketsByScheduleID">
+      <input wsam:Action="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/TicketService/getTicketsByScheduleIDRequest" message="tns:getTicketsByScheduleID" />
+      <output wsam:Action="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/TicketService/getTicketsByScheduleIDResponse" message="tns:getTicketsByScheduleIDResponse" />
+    </operation>
+    <operation name="generateTicket">
+      <input wsam:Action="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/TicketService/generateTicketRequest" message="tns:generateTicket" />
+      <output wsam:Action="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/TicketService/generateTicketResponse" message="tns:generateTicketResponse" />
+      <fault wsam:Action="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/TicketService/generateTicket/Fault/TicketSoldException" name="TicketSoldException" message="tns:TicketSoldException" />
+    </operation>
+    <operation name="findTicketById">
+      <input wsam:Action="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/TicketService/findTicketByIdRequest" message="tns:findTicketById" />
+      <output wsam:Action="http://TicketServices.Services.EntertainmentNetworkServer.ua.git.dev/TicketService/findTicketByIdResponse" message="tns:findTicketByIdResponse" />
+    </operation>
+  </portType>
+  <binding name="TicketServicePortBinding" type="tns:TicketService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="removeTicket">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getTickets">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="saveTickets">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getTicketsByScheduleID">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="generateTicket">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="TicketSoldException">
+        <soap:fault use="literal" name="TicketSoldException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findTicketById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="TicketServiceService">
+    <port name="TicketServicePort" binding="tns:TicketServicePortBinding">
+      <soap:address location="http://pc-test:8081/TicketService" />
+    </port>
+  </service>
+</definitions>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://CityServices.Services.EntertainmentNetworkServer.ua.git.dev/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="CityServiceService" targetNamespace="http://CityServices.Services.EntertainmentNetworkServer.ua.git.dev/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://pc-test:8081/CityService?xsd=1" namespace="http://CityServices.Services.EntertainmentNetworkServer.ua.git.dev/" />
+    </xsd:schema>
+  </types>
+  <message name="removeCity">
+    <part name="parameters" element="tns:removeCity" />
+  </message>
+  <message name="removeCityResponse">
+    <part name="parameters" element="tns:removeCityResponse" />
+  </message>
+  <message name="ServiceException">
+    <part name="fault" element="tns:ServiceException" />
+  </message>
+  <message name="getCities">
+    <part name="parameters" element="tns:getCities" />
+  </message>
+  <message name="getCitiesResponse">
+    <part name="parameters" element="tns:getCitiesResponse" />
+  </message>
+  <message name="saveCities">
+    <part name="parameters" element="tns:saveCities" />
+  </message>
+  <message name="saveCitiesResponse">
+    <part name="parameters" element="tns:saveCitiesResponse" />
+  </message>
+  <message name="findCityById">
+    <part name="parameters" element="tns:findCityById" />
+  </message>
+  <message name="findCityByIdResponse">
+    <part name="parameters" element="tns:findCityByIdResponse" />
+  </message>
+  <portType name="CityService">
+    <operation name="removeCity">
+      <input wsam:Action="http://CityServices.Services.EntertainmentNetworkServer.ua.git.dev/CityService/removeCityRequest" message="tns:removeCity" />
+      <output wsam:Action="http://CityServices.Services.EntertainmentNetworkServer.ua.git.dev/CityService/removeCityResponse" message="tns:removeCityResponse" />
+      <fault wsam:Action="http://CityServices.Services.EntertainmentNetworkServer.ua.git.dev/CityService/removeCity/Fault/ServiceException" name="ServiceException" message="tns:ServiceException" />
+    </operation>
+    <operation name="getCities">
+      <input wsam:Action="http://CityServices.Services.EntertainmentNetworkServer.ua.git.dev/CityService/getCitiesRequest" message="tns:getCities" />
+      <output wsam:Action="http://CityServices.Services.EntertainmentNetworkServer.ua.git.dev/CityService/getCitiesResponse" message="tns:getCitiesResponse" />
+    </operation>
+    <operation name="saveCities">
+      <input wsam:Action="http://CityServices.Services.EntertainmentNetworkServer.ua.git.dev/CityService/saveCitiesRequest" message="tns:saveCities" />
+      <output wsam:Action="http://CityServices.Services.EntertainmentNetworkServer.ua.git.dev/CityService/saveCitiesResponse" message="tns:saveCitiesResponse" />
+    </operation>
+    <operation name="findCityById">
+      <input wsam:Action="http://CityServices.Services.EntertainmentNetworkServer.ua.git.dev/CityService/findCityByIdRequest" message="tns:findCityById" />
+      <output wsam:Action="http://CityServices.Services.EntertainmentNetworkServer.ua.git.dev/CityService/findCityByIdResponse" message="tns:findCityByIdResponse" />
+    </operation>
+  </portType>
+  <binding name="CityServicePortBinding" type="tns:CityService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="removeCity">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getCities">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="saveCities">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findCityById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="CityServiceService">
+    <port name="CityServicePort" binding="tns:CityServicePortBinding">
+      <soap:address location="http://pc-test:8081/CityService" />
+    </port>
+  </service>
+</definitions>

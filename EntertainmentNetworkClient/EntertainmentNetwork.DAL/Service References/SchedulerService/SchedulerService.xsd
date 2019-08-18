@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://SchedulerServices.Services.EntertainmentNetworkServer.ua.git.dev/" targetNamespace="http://SchedulerServices.Services.EntertainmentNetworkServer.ua.git.dev/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ServiceException" type="tns:ServiceException" />
+  <xs:element name="findSchedulerById" type="tns:findSchedulerById" />
+  <xs:element name="findSchedulerByIdResponse" type="tns:findSchedulerByIdResponse" />
+  <xs:element name="getSchedulers" type="tns:getSchedulers" />
+  <xs:element name="getSchedulersByCinemaHallShowDates" type="tns:getSchedulersByCinemaHallShowDates" />
+  <xs:element name="getSchedulersByCinemaHallShowDatesResponse" type="tns:getSchedulersByCinemaHallShowDatesResponse" />
+  <xs:element name="getSchedulersResponse" type="tns:getSchedulersResponse" />
+  <xs:element name="removeScheduler" type="tns:removeScheduler" />
+  <xs:element name="removeSchedulerResponse" type="tns:removeSchedulerResponse" />
+  <xs:element name="saveSchedulers" type="tns:saveSchedulers" />
+  <xs:element name="saveSchedulersResponse" type="tns:saveSchedulersResponse" />
+  <xs:complexType name="removeScheduler">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeSchedulerResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="ServiceException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveSchedulers">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="arg0" type="tns:scheduler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="scheduler">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="schDescr" type="xs:string" />
+          <xs:element minOccurs="0" name="schTimeFrom" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="schTimeTo" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="schCoef" type="xs:decimal" />
+          <xs:element minOccurs="0" name="hallId" type="xs:decimal" />
+          <xs:element minOccurs="0" name="showId" type="xs:decimal" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="baseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:decimal" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveSchedulersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:scheduler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getSchedulers">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getSchedulersResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:scheduler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findSchedulerById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findSchedulerByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:scheduler" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getSchedulersByCinemaHallShowDates">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cinemaID" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="hallId" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="showId" nillable="true" type="xs:decimal" />
+      <xs:element name="startDt" type="xs:dateTime" />
+      <xs:element name="endDt" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getSchedulersByCinemaHallShowDatesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:scheduler" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

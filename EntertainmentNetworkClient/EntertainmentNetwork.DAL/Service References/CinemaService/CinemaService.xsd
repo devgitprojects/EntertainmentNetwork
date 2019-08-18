@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://CinemaServices.Services.EntertainmentNetworkServer.ua.git.dev/" targetNamespace="http://CinemaServices.Services.EntertainmentNetworkServer.ua.git.dev/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ServiceException" type="tns:ServiceException" />
+  <xs:element name="findCinemaById" type="tns:findCinemaById" />
+  <xs:element name="findCinemaByIdResponse" type="tns:findCinemaByIdResponse" />
+  <xs:element name="generateSeats" type="tns:generateSeats" />
+  <xs:element name="generateSeatsResponse" type="tns:generateSeatsResponse" />
+  <xs:element name="getCinemas" type="tns:getCinemas" />
+  <xs:element name="getCinemasResponse" type="tns:getCinemasResponse" />
+  <xs:element name="getSimplifiedCinemasByCityIdShowId" type="tns:getSimplifiedCinemasByCityIdShowId" />
+  <xs:element name="getSimplifiedCinemasByCityIdShowIdResponse" type="tns:getSimplifiedCinemasByCityIdShowIdResponse" />
+  <xs:element name="removeCinema" type="tns:removeCinema" />
+  <xs:element name="removeCinemaResponse" type="tns:removeCinemaResponse" />
+  <xs:element name="saveCinemas" type="tns:saveCinemas" />
+  <xs:element name="saveCinemasResponse" type="tns:saveCinemasResponse" />
+  <xs:complexType name="getCinemas">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getCinemasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cinema" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="cinema">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="city" type="xs:string" />
+          <xs:element minOccurs="0" name="cinIcon" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="cinAddress" type="xs:string" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="halls" nillable="true" type="tns:hall" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="baseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:decimal" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="hall">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="sections" nillable="true" type="tns:section" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="section">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="secCoef" type="xs:decimal" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="seats" nillable="true" type="tns:seat" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="seat">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseModel">
+        <xs:sequence>
+          <xs:element name="seatIsactive" type="xs:boolean" />
+          <xs:element name="seatColumn" type="xs:int" />
+          <xs:element name="seatNum" type="xs:int" />
+          <xs:element name="seatRow" type="xs:int" />
+          <xs:element name="seatType" type="xs:int" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="findCinemaById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findCinemaByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cinema" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getSimplifiedCinemasByCityIdShowId">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="cityId" nillable="true" type="xs:decimal" />
+      <xs:element minOccurs="0" name="showId" nillable="true" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getSimplifiedCinemasByCityIdShowIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:immutableTriple" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="immutableTriple" final="extension restriction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:triple">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="left" type="xs:anyType" />
+          <xs:element minOccurs="0" name="middle" type="xs:anyType" />
+          <xs:element minOccurs="0" name="right" type="xs:anyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="triple" abstract="true">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="generateSeats">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:decimal" />
+      <xs:element name="arg1" type="xs:int" />
+      <xs:element name="arg2" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="generateSeatsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:seat" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeCinema">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeCinemaResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="ServiceException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveCinemas">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="arg0" type="tns:cinema" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveCinemasResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:cinema" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

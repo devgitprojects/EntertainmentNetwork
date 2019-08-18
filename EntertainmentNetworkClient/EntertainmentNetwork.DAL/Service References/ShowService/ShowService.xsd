@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ShowServices.Services.EntertainmentNetworkServer.ua.git.dev/" targetNamespace="http://ShowServices.Services.EntertainmentNetworkServer.ua.git.dev/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ServiceException" type="tns:ServiceException" />
+  <xs:element name="findShowById" type="tns:findShowById" />
+  <xs:element name="findShowByIdResponse" type="tns:findShowByIdResponse" />
+  <xs:element name="getShows" type="tns:getShows" />
+  <xs:element name="getShowsResponse" type="tns:getShowsResponse" />
+  <xs:element name="getSimplifiedShowsByDates" type="tns:getSimplifiedShowsByDates" />
+  <xs:element name="getSimplifiedShowsByDatesResponse" type="tns:getSimplifiedShowsByDatesResponse" />
+  <xs:element name="removeShow" type="tns:removeShow" />
+  <xs:element name="removeShowResponse" type="tns:removeShowResponse" />
+  <xs:element name="saveShows" type="tns:saveShows" />
+  <xs:element name="saveShowsResponse" type="tns:saveShowsResponse" />
+  <xs:complexType name="saveShows">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="arg0" type="tns:show" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="show">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="shwPerformer" type="xs:string" />
+          <xs:element minOccurs="0" name="shwDescr" type="xs:string" />
+          <xs:element minOccurs="0" name="shwIcon" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="shwStartDt" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="shwEndDt" type="xs:dateTime" />
+          <xs:element name="shwPrice" type="xs:float" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="baseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:decimal" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveShowsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:show" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeShow">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeShowResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="ServiceException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getSimplifiedShowsByDates">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="arg1" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getSimplifiedShowsByDatesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:immutablePair" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="immutablePair" final="extension restriction">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:pair">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="left" type="xs:anyType" />
+          <xs:element minOccurs="0" name="right" type="xs:anyType" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="pair" abstract="true">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getShows">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getShowsResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:show" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findShowById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findShowByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:show" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

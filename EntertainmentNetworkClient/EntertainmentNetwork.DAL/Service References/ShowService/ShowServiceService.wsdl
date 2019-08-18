@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ShowServices.Services.EntertainmentNetworkServer.ua.git.dev/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="ShowServiceService" targetNamespace="http://ShowServices.Services.EntertainmentNetworkServer.ua.git.dev/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://pc-test:8081/ShowService?xsd=1" namespace="http://ShowServices.Services.EntertainmentNetworkServer.ua.git.dev/" />
+    </xsd:schema>
+  </types>
+  <message name="removeShow">
+    <part name="parameters" element="tns:removeShow" />
+  </message>
+  <message name="removeShowResponse">
+    <part name="parameters" element="tns:removeShowResponse" />
+  </message>
+  <message name="ServiceException">
+    <part name="fault" element="tns:ServiceException" />
+  </message>
+  <message name="getShows">
+    <part name="parameters" element="tns:getShows" />
+  </message>
+  <message name="getShowsResponse">
+    <part name="parameters" element="tns:getShowsResponse" />
+  </message>
+  <message name="saveShows">
+    <part name="parameters" element="tns:saveShows" />
+  </message>
+  <message name="saveShowsResponse">
+    <part name="parameters" element="tns:saveShowsResponse" />
+  </message>
+  <message name="getSimplifiedShowsByDates">
+    <part name="parameters" element="tns:getSimplifiedShowsByDates" />
+  </message>
+  <message name="getSimplifiedShowsByDatesResponse">
+    <part name="parameters" element="tns:getSimplifiedShowsByDatesResponse" />
+  </message>
+  <message name="findShowById">
+    <part name="parameters" element="tns:findShowById" />
+  </message>
+  <message name="findShowByIdResponse">
+    <part name="parameters" element="tns:findShowByIdResponse" />
+  </message>
+  <portType name="ShowService">
+    <operation name="removeShow">
+      <input wsam:Action="http://ShowServices.Services.EntertainmentNetworkServer.ua.git.dev/ShowService/removeShowRequest" message="tns:removeShow" />
+      <output wsam:Action="http://ShowServices.Services.EntertainmentNetworkServer.ua.git.dev/ShowService/removeShowResponse" message="tns:removeShowResponse" />
+      <fault wsam:Action="http://ShowServices.Services.EntertainmentNetworkServer.ua.git.dev/ShowService/removeShow/Fault/ServiceException" name="ServiceException" message="tns:ServiceException" />
+    </operation>
+    <operation name="getShows">
+      <input wsam:Action="http://ShowServices.Services.EntertainmentNetworkServer.ua.git.dev/ShowService/getShowsRequest" message="tns:getShows" />
+      <output wsam:Action="http://ShowServices.Services.EntertainmentNetworkServer.ua.git.dev/ShowService/getShowsResponse" message="tns:getShowsResponse" />
+    </operation>
+    <operation name="saveShows">
+      <input wsam:Action="http://ShowServices.Services.EntertainmentNetworkServer.ua.git.dev/ShowService/saveShowsRequest" message="tns:saveShows" />
+      <output wsam:Action="http://ShowServices.Services.EntertainmentNetworkServer.ua.git.dev/ShowService/saveShowsResponse" message="tns:saveShowsResponse" />
+    </operation>
+    <operation name="getSimplifiedShowsByDates">
+      <input wsam:Action="http://ShowServices.Services.EntertainmentNetworkServer.ua.git.dev/ShowService/getSimplifiedShowsByDatesRequest" message="tns:getSimplifiedShowsByDates" />
+      <output wsam:Action="http://ShowServices.Services.EntertainmentNetworkServer.ua.git.dev/ShowService/getSimplifiedShowsByDatesResponse" message="tns:getSimplifiedShowsByDatesResponse" />
+    </operation>
+    <operation name="findShowById">
+      <input wsam:Action="http://ShowServices.Services.EntertainmentNetworkServer.ua.git.dev/ShowService/findShowByIdRequest" message="tns:findShowById" />
+      <output wsam:Action="http://ShowServices.Services.EntertainmentNetworkServer.ua.git.dev/ShowService/findShowByIdResponse" message="tns:findShowByIdResponse" />
+    </operation>
+  </portType>
+  <binding name="ShowServicePortBinding" type="tns:ShowService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="removeShow">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getShows">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="saveShows">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getSimplifiedShowsByDates">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findShowById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="ShowServiceService">
+    <port name="ShowServicePort" binding="tns:ShowServicePortBinding">
+      <soap:address location="http://pc-test:8081/ShowService" />
+    </port>
+  </service>
+</definitions>

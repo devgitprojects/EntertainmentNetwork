@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://CityServices.Services.EntertainmentNetworkServer.ua.git.dev/" targetNamespace="http://CityServices.Services.EntertainmentNetworkServer.ua.git.dev/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="ServiceException" type="tns:ServiceException" />
+  <xs:element name="findCityById" type="tns:findCityById" />
+  <xs:element name="findCityByIdResponse" type="tns:findCityByIdResponse" />
+  <xs:element name="getCities" type="tns:getCities" />
+  <xs:element name="getCitiesResponse" type="tns:getCitiesResponse" />
+  <xs:element name="removeCity" type="tns:removeCity" />
+  <xs:element name="removeCityResponse" type="tns:removeCityResponse" />
+  <xs:element name="saveCities" type="tns:saveCities" />
+  <xs:element name="saveCitiesResponse" type="tns:saveCitiesResponse" />
+  <xs:complexType name="removeCity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="removeCityResponse">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="ServiceException">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="message" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveCities">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="arg0" type="tns:city" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="city">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:baseModel">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="citCountry" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="baseModel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="xs:decimal" />
+      <xs:element minOccurs="0" name="name" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="saveCitiesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:city" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getCities">
+    <xs:sequence />
+  </xs:complexType>
+  <xs:complexType name="getCitiesResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:city" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findCityById">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:decimal" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="findCityByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="return" type="tns:city" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

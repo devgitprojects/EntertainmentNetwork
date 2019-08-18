@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://CinemaServices.Services.EntertainmentNetworkServer.ua.git.dev/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="CinemaServiceService" targetNamespace="http://CinemaServices.Services.EntertainmentNetworkServer.ua.git.dev/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://pc-test:8081/CinemaService?xsd=1" namespace="http://CinemaServices.Services.EntertainmentNetworkServer.ua.git.dev/" />
+    </xsd:schema>
+  </types>
+  <message name="removeCinema">
+    <part name="parameters" element="tns:removeCinema" />
+  </message>
+  <message name="removeCinemaResponse">
+    <part name="parameters" element="tns:removeCinemaResponse" />
+  </message>
+  <message name="ServiceException">
+    <part name="fault" element="tns:ServiceException" />
+  </message>
+  <message name="getCinemas">
+    <part name="parameters" element="tns:getCinemas" />
+  </message>
+  <message name="getCinemasResponse">
+    <part name="parameters" element="tns:getCinemasResponse" />
+  </message>
+  <message name="saveCinemas">
+    <part name="parameters" element="tns:saveCinemas" />
+  </message>
+  <message name="saveCinemasResponse">
+    <part name="parameters" element="tns:saveCinemasResponse" />
+  </message>
+  <message name="findCinemaById">
+    <part name="parameters" element="tns:findCinemaById" />
+  </message>
+  <message name="findCinemaByIdResponse">
+    <part name="parameters" element="tns:findCinemaByIdResponse" />
+  </message>
+  <message name="generateSeats">
+    <part name="parameters" element="tns:generateSeats" />
+  </message>
+  <message name="generateSeatsResponse">
+    <part name="parameters" element="tns:generateSeatsResponse" />
+  </message>
+  <message name="getSimplifiedCinemasByCityIdShowId">
+    <part name="parameters" element="tns:getSimplifiedCinemasByCityIdShowId" />
+  </message>
+  <message name="getSimplifiedCinemasByCityIdShowIdResponse">
+    <part name="parameters" element="tns:getSimplifiedCinemasByCityIdShowIdResponse" />
+  </message>
+  <portType name="CinemaService">
+    <operation name="removeCinema">
+      <input wsam:Action="http://CinemaServices.Services.EntertainmentNetworkServer.ua.git.dev/CinemaService/removeCinemaRequest" message="tns:removeCinema" />
+      <output wsam:Action="http://CinemaServices.Services.EntertainmentNetworkServer.ua.git.dev/CinemaService/removeCinemaResponse" message="tns:removeCinemaResponse" />
+      <fault wsam:Action="http://CinemaServices.Services.EntertainmentNetworkServer.ua.git.dev/CinemaService/removeCinema/Fault/ServiceException" name="ServiceException" message="tns:ServiceException" />
+    </operation>
+    <operation name="getCinemas">
+      <input wsam:Action="http://CinemaServices.Services.EntertainmentNetworkServer.ua.git.dev/CinemaService/getCinemasRequest" message="tns:getCinemas" />
+      <output wsam:Action="http://CinemaServices.Services.EntertainmentNetworkServer.ua.git.dev/CinemaService/getCinemasResponse" message="tns:getCinemasResponse" />
+    </operation>
+    <operation name="saveCinemas">
+      <input wsam:Action="http://CinemaServices.Services.EntertainmentNetworkServer.ua.git.dev/CinemaService/saveCinemasRequest" message="tns:saveCinemas" />
+      <output wsam:Action="http://CinemaServices.Services.EntertainmentNetworkServer.ua.git.dev/CinemaService/saveCinemasResponse" message="tns:saveCinemasResponse" />
+    </operation>
+    <operation name="findCinemaById">
+      <input wsam:Action="http://CinemaServices.Services.EntertainmentNetworkServer.ua.git.dev/CinemaService/findCinemaByIdRequest" message="tns:findCinemaById" />
+      <output wsam:Action="http://CinemaServices.Services.EntertainmentNetworkServer.ua.git.dev/CinemaService/findCinemaByIdResponse" message="tns:findCinemaByIdResponse" />
+    </operation>
+    <operation name="generateSeats">
+      <input wsam:Action="http://CinemaServices.Services.EntertainmentNetworkServer.ua.git.dev/CinemaService/generateSeatsRequest" message="tns:generateSeats" />
+      <output wsam:Action="http://CinemaServices.Services.EntertainmentNetworkServer.ua.git.dev/CinemaService/generateSeatsResponse" message="tns:generateSeatsResponse" />
+    </operation>
+    <operation name="getSimplifiedCinemasByCityIdShowId">
+      <input wsam:Action="http://CinemaServices.Services.EntertainmentNetworkServer.ua.git.dev/CinemaService/getSimplifiedCinemasByCityIdShowIdRequest" message="tns:getSimplifiedCinemasByCityIdShowId" />
+      <output wsam:Action="http://CinemaServices.Services.EntertainmentNetworkServer.ua.git.dev/CinemaService/getSimplifiedCinemasByCityIdShowIdResponse" message="tns:getSimplifiedCinemasByCityIdShowIdResponse" />
+    </operation>
+  </portType>
+  <binding name="CinemaServicePortBinding" type="tns:CinemaService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="removeCinema">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getCinemas">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="saveCinemas">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findCinemaById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="generateSeats">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="getSimplifiedCinemasByCityIdShowId">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="CinemaServiceService">
+    <port name="CinemaServicePort" binding="tns:CinemaServicePortBinding">
+      <soap:address location="http://pc-test:8081/CinemaService" />
+    </port>
+  </service>
+</definitions>

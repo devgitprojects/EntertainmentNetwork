@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://OrderService.Services.EntertainmentNetworkServer.ua.git.dev/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="OrderServiceService" targetNamespace="http://OrderService.Services.EntertainmentNetworkServer.ua.git.dev/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://pc-test:8081/OrdersService?xsd=1" namespace="http://OrderService.Services.EntertainmentNetworkServer.ua.git.dev/" />
+    </xsd:schema>
+  </types>
+  <message name="removeOrder">
+    <part name="parameters" element="tns:removeOrder" />
+  </message>
+  <message name="removeOrderResponse">
+    <part name="parameters" element="tns:removeOrderResponse" />
+  </message>
+  <message name="ServiceException">
+    <part name="fault" element="tns:ServiceException" />
+  </message>
+  <message name="getOrders">
+    <part name="parameters" element="tns:getOrders" />
+  </message>
+  <message name="getOrdersResponse">
+    <part name="parameters" element="tns:getOrdersResponse" />
+  </message>
+  <message name="generateOrder">
+    <part name="parameters" element="tns:generateOrder" />
+  </message>
+  <message name="generateOrderResponse">
+    <part name="parameters" element="tns:generateOrderResponse" />
+  </message>
+  <message name="findOrdersById">
+    <part name="parameters" element="tns:findOrdersById" />
+  </message>
+  <message name="findOrdersByIdResponse">
+    <part name="parameters" element="tns:findOrdersByIdResponse" />
+  </message>
+  <message name="save">
+    <part name="parameters" element="tns:save" />
+  </message>
+  <message name="saveResponse">
+    <part name="parameters" element="tns:saveResponse" />
+  </message>
+  <portType name="OrderService">
+    <operation name="removeOrder">
+      <input wsam:Action="http://OrderService.Services.EntertainmentNetworkServer.ua.git.dev/OrderService/removeOrderRequest" message="tns:removeOrder" />
+      <output wsam:Action="http://OrderService.Services.EntertainmentNetworkServer.ua.git.dev/OrderService/removeOrderResponse" message="tns:removeOrderResponse" />
+      <fault wsam:Action="http://OrderService.Services.EntertainmentNetworkServer.ua.git.dev/OrderService/removeOrder/Fault/ServiceException" name="ServiceException" message="tns:ServiceException" />
+    </operation>
+    <operation name="getOrders">
+      <input wsam:Action="http://OrderService.Services.EntertainmentNetworkServer.ua.git.dev/OrderService/getOrdersRequest" message="tns:getOrders" />
+      <output wsam:Action="http://OrderService.Services.EntertainmentNetworkServer.ua.git.dev/OrderService/getOrdersResponse" message="tns:getOrdersResponse" />
+    </operation>
+    <operation name="generateOrder">
+      <input wsam:Action="http://OrderService.Services.EntertainmentNetworkServer.ua.git.dev/OrderService/generateOrderRequest" message="tns:generateOrder" />
+      <output wsam:Action="http://OrderService.Services.EntertainmentNetworkServer.ua.git.dev/OrderService/generateOrderResponse" message="tns:generateOrderResponse" />
+    </operation>
+    <operation name="findOrdersById">
+      <input wsam:Action="http://OrderService.Services.EntertainmentNetworkServer.ua.git.dev/OrderService/findOrdersByIdRequest" message="tns:findOrdersById" />
+      <output wsam:Action="http://OrderService.Services.EntertainmentNetworkServer.ua.git.dev/OrderService/findOrdersByIdResponse" message="tns:findOrdersByIdResponse" />
+    </operation>
+    <operation name="save">
+      <input wsam:Action="http://OrderService.Services.EntertainmentNetworkServer.ua.git.dev/OrderService/saveRequest" message="tns:save" />
+      <output wsam:Action="http://OrderService.Services.EntertainmentNetworkServer.ua.git.dev/OrderService/saveResponse" message="tns:saveResponse" />
+    </operation>
+  </portType>
+  <binding name="OrderServicePortBinding" type="tns:OrderService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="removeOrder">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="ServiceException">
+        <soap:fault use="literal" name="ServiceException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getOrders">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="generateOrder">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="findOrdersById">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="save">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="OrderServiceService">
+    <port name="OrderServicePort" binding="tns:OrderServicePortBinding">
+      <soap:address location="http://pc-test:8081/OrdersService" />
+    </port>
+  </service>
+</definitions>
